@@ -8,8 +8,8 @@ import {
 } from './ui/sheet';
 import {
   HiMinus,
+  HiOutlineHeart,
   HiOutlinePlus,
-  HiOutlineShoppingCart,
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
@@ -27,7 +27,7 @@ export default function Cart() {
     <Sheet>
       <SheetTrigger>
         <Button variant="ghost">
-          <HiOutlineShoppingCart size="25" />
+          <HiOutlineHeart size="25" />
         </Button>
       </SheetTrigger>
       <SheetContent className="overflow-auto relative">

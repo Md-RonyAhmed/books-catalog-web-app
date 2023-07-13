@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IProduct } from '@/types/globalTypes';
 import { toast } from './ui/use-toast';
 import { Button } from './ui/button';
@@ -8,7 +9,7 @@ interface IProps {
 }
 
 export default function ProductCard({ product }: IProps) {
-  const handleAddProduct = (product: IProduct) => {
+  const handleAddProduct = () => {
     toast({
       description: 'Product Added',
     });
@@ -25,7 +26,7 @@ export default function ProductCard({ product }: IProps) {
           Availability: {product?.status ? 'In stock' : 'Out of stock'}
         </p>
         <p className="text-sm">Price: {product?.price}</p>
-        <Button variant="default" onClick={() => handleAddProduct(product)}>
+        <Button variant="default" onClick={() => handleAddProduct()}>
           Add to cart
         </Button>
       </div>
