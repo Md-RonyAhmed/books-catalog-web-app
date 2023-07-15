@@ -7,7 +7,7 @@ const bookApi = api.injectEndpoints({
       providesTags: ['books'],
     }),
     getBook: builder.query({
-      query: (id) => `/book/${id}`,
+      query: (id) => `/books/${id}`,
       providesTags: ['books'],
     }),
     postReview: builder.mutation({

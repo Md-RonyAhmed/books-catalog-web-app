@@ -1,23 +1,30 @@
 import BookReview from '@/components/BookReview';
+import Error from '@/components/ui/Error';
+import Loading from '@/components/ui/Loading';
 import { Button } from '@/components/ui/button';
-import { IBooks } from '@/types/globalTypes';
-import { useEffect, useState } from 'react';
+import { useGetBookQuery } from '@/redux/features/books/booksApi';
 import { useParams } from 'react-router-dom';
 
 export default function BookDetails() {
   const { id } = useParams();
 
-  //! Temporary code, should be replaced with redux
-  const [data, setData] = useState<IBooks[]>([]);
-  useEffect(() => {
-    fetch('https://books-catalog-server.vercel.app/api/v1/books')
-      .then((res) => res.json())
-      .then((data) => setData(data.data));
-  }, []);
+  const { data: book, isLoading, isError } = useGetBookQuery(id);
 
-  const book = data?.find((item) => item._id === Number(id));
+  if (isLoading && !book) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
-  //! Temporary code ends here
+  if (!isLoading && isError) {
+    return (
+      <div>
+        <Error error="Error fetching book" />
+      </div>
+    );
+  }
 
   return (
     <>
