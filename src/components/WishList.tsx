@@ -15,7 +15,7 @@ import {
 import { Button } from './ui/button';
 import { IBooks } from '@/types/globalTypes';
 
-export default function Cart() {
+export default function WishList() {
   //! Dummy data
 
   const books: IBooks[] = [];
@@ -32,8 +32,8 @@ export default function Cart() {
       </SheetTrigger>
       <SheetContent className="overflow-auto relative">
         <SheetHeader>
-          <SheetTitle>Cart</SheetTitle>
-          <h1>Total: {total.toFixed(2)}</h1>
+          <SheetTitle>Wishlist</SheetTitle>
+          <h1>Total: {total}</h1>
         </SheetHeader>
         <div className="space-y-5">
           {books.map((book) => (

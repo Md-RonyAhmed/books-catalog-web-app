@@ -4,7 +4,7 @@ import Error from './ui/Error';
 import BookCard from './BookCard';
 import { IBooks } from '@/types/globalTypes';
 
-const LatestProducts = () => {
+const LatestBooks = () => {
   const { data, isLoading, isError } = useGetBooksQuery(undefined);
 
   if (isLoading && !data) {
@@ -43,4 +43,4 @@ const LatestProducts = () => {
   );
 };
 
-export default LatestProducts;
+export default LatestBooks;

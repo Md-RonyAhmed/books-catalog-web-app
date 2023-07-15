@@ -8,12 +8,14 @@ export default function Navbar() {
     <nav className="w-full h-20 fixed top backdrop-blur-lg z-10">
       <div className="h-full w-full bg-white/60">
         <div className="flex items-center justify-between w-full md:max-w-7xl h-full mx-auto ">
-          <div className="flex gap-3 justify-center items-center">
-            <img className="h-8" src={logo} alt="log" />
-            <h1 className="text-3xl font-semibold text-yellow-400">
-              Lite<span className="text-red-500">rati</span>
-            </h1>
-          </div>
+          <Link to={'/'}>
+            <div className="flex gap-3 justify-center items-center cursor-pointer">
+              <img className="h-8" src={logo} alt="log" />
+              <h1 className="text-3xl font-semibold text-yellow-400">
+                Lite<span className="text-red-500">rati</span>
+              </h1>
+            </div>
+          </Link>
           <div>
             <ul className="flex items-center">
               <li>
@@ -23,12 +25,12 @@ export default function Navbar() {
               </li>
               <li>
                 <Button variant="link" asChild>
-                  <Link to="/products">All Books</Link>
+                  <Link to="/books">All Books</Link>
                 </Button>
               </li>
               <li>
                 <Button variant="link" asChild>
-                  <Link to="/checkout">Add Book</Link>
+                  <Link to="/add-book">Add Book</Link>
                 </Button>
               </li>
               <li>

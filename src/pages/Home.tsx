@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import banner from '@/assets/images/bookBannerImage.png';
 import hero from '@/assets/images/hero.jpg';
 import { Link } from 'react-router-dom';
-import LatestProducts from '@/components/LatestProducts';
+import LatestBooks from '@/components/LatestBooks';
 
 export default function Home() {
   return (
@@ -26,7 +26,9 @@ export default function Home() {
               <br /> classics to contemporary masterpieces.
             </p>
           </div>
-          <Button className="mt-5">Explore books</Button>
+          <Button className="mt-5" asChild>
+            <Link to="/books">Explore books</Link>
+          </Button>
         </div>
         <div className="relative -right-14">
           <img src={banner} alt="" />
@@ -34,7 +36,7 @@ export default function Home() {
       </div>
       <div className="mx-auto">
         <h1 className="text-4xl p-28 py-10 font-semibold">Latest Books</h1>
-        <LatestProducts />
+        <LatestBooks />
       </div>
       <div className="mb-52 mt-10">
         <div className="h-1/2 w-1/2 rounded-full mx-auto">
@@ -45,7 +47,7 @@ export default function Home() {
             The future will be created by reading books
           </h1>
           <Button className="mt-10" asChild>
-            <Link to="/products">Brows all books</Link>
+            <Link to="/books">Brows all books</Link>
           </Button>
         </div>
       </div>

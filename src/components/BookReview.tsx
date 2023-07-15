@@ -10,7 +10,7 @@ const dummyComments = [
   '200 taka dibo, hobe ??',
 ];
 
-export default function ProductReview() {
+export default function BookReview() {
   return (
     <div className="max-w-7xl mx-auto mt-5">
       <div className="flex gap-5 items-center">

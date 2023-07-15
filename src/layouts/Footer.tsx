@@ -1,5 +1,6 @@
 import logo from '@/assets/images/logo.png';
 import { RiFacebookBoxFill, RiInstagramLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
@@ -7,12 +8,14 @@ export default function Footer() {
   return (
     <div className="bg-gray-800 text-secondary p-20">
       <div className="flex justify-between">
-        <div className="flex gap-3 justify-center items-center">
-          <img className="h-8" src={logo} alt="log" />
-          <h1 className="text-3xl font-semibold text-yellow-400">
-            Lite<span className="text-red-500">rati</span>
-          </h1>
-        </div>
+        <Link to={'/'}>
+          <div className="flex gap-3 justify-center items-center cursor-pointer">
+            <img className="h-8" src={logo} alt="log" />
+            <h1 className="text-3xl font-semibold text-yellow-400">
+              Lite<span className="text-red-500">rati</span>
+            </h1>
+          </div>
+        </Link>
         <div className="flex gap-20">
           <ul className="space-y-2">
             <li>Upcoming</li>

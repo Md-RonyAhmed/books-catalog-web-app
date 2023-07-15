@@ -1,7 +1,8 @@
 import { cn } from '@/lib/utils';
+import logo from '@/assets/images/logo.png';
 import { buttonVariants } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import Footer from '@/layouts/Footer';
 import { LoginForm } from '@/components/LoginForm';
 
 export default function Login() {
@@ -11,22 +12,29 @@ export default function Login() {
         <Link
           to="/signup"
           className={cn(
-            buttonVariants({ variant: 'ghost', size: 'sm' }),
+            buttonVariants({ variant: 'default', size: 'sm' }),
             'absolute right-4 top-4 md:right-8 md:top-8'
           )}
         >
-          Signup
+          Sign up
         </Link>
         <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
           <div
             className="absolute inset-0 bg-cover"
             style={{
               backgroundImage:
-                'url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)',
+                'url(https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg?w=740&t=st=1689076462~exp=1689077062~hmac=9e18f9401bec5079df62d035d79a0749b3bfb57bc1b92da49465608ccbad9f73)',
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <img className="h-8" src={logo} alt="" />
+            <Link to={'/'}>
+              <div className="flex gap-3 justify-center items-center cursor-pointer">
+                <img className="h-8" src={logo} alt="log" />
+                <h1 className="text-3xl font-semibold text-yellow-400">
+                  Lite<span className="text-red-500">rati</span>
+                </h1>
+              </div>
+            </Link>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
@@ -34,14 +42,6 @@ export default function Login() {
         </div>
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-            <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
-                Login to your account
-              </h1>
-              <p className="text-sm text-muted-foreground">
-                Enter your email below
-              </p>
-            </div>
             <LoginForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{' '}
@@ -63,6 +63,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
