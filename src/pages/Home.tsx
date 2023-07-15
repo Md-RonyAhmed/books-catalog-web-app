@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import banner from '@/assets/images/bookBannerImage.png';
 import hero from '@/assets/images/hero.jpg';
 import { Link } from 'react-router-dom';
+import LatestProducts from '@/components/LatestProducts';
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
             </p>
             <p>
               Immerse yourself in a vast collection of books, from timeless
-             <br /> classics to contemporary masterpieces.
+              <br /> classics to contemporary masterpieces.
             </p>
           </div>
           <Button className="mt-5">Explore books</Button>
@@ -31,8 +32,12 @@ export default function Home() {
           <img src={banner} alt="" />
         </div>
       </div>
+      <div className="mx-auto">
+        <h1 className="text-4xl p-28 py-10 font-semibold">Latest Books</h1>
+        <LatestProducts />
+      </div>
       <div className="mb-52 mt-10">
-        <div className='h-1/2 w-1/2 rounded-full mx-auto'>
+        <div className="h-1/2 w-1/2 rounded-full mx-auto">
           <img className="mx-auto rounded-full" src={hero} alt="" />
         </div>
         <div className="flex flex-col items-center justify-center">

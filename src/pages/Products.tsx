@@ -1,4 +1,4 @@
-import ProductCard from '@/components/ProductCard';
+import ProductCard from '@/components/BookCard';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
