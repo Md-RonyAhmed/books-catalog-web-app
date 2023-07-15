@@ -25,15 +25,24 @@ export default function BookCard({ book }: IProps) {
           />
           <h1 className="text-lg font-semibold">{book?.title}</h1>
         </Link>
-        <p className="text-sm">Rating: {book?.rating}</p>
         <p className="text-sm">
           Author: <span className="text-gray-500">{book?.author}</span>
         </p>
-        <p className="text-sm">Genre:{" "}
+        <p className="text-sm">
+          Genre:{' '}
           <span className="text-sm font-semibold text-red-600">
             {book?.genre}
           </span>
         </p>
+        <p className="text-sm">
+          Published:{' '}
+          <span className="text-gray-500">
+            {book?.published instanceof Date
+              ? book?.published.toLocaleDateString()
+              : new Date(book?.published).toLocaleDateString()}
+          </span>
+        </p>
+        <p className="text-sm">Rating: {book?.rating}</p>
         <Button variant="default" className="w-full">
           Add to wishlist
         </Button>

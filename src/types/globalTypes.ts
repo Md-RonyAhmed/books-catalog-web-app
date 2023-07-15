@@ -5,7 +5,7 @@ export interface IBooks {
   author: string;
   genre: string;
   rating?: number;
-  published: Date;
+  published: string | Date;
   userId?: string;
   reviews?: string[];
 }
