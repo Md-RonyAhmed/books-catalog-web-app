@@ -2,39 +2,18 @@ import ProductCard from '@/components/BookCard';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
-import { IProduct } from '@/types/globalTypes';
+import { IBooks } from '@/types/globalTypes';
 import { useEffect, useState } from 'react';
 
 export default function Products() {
-  const [data, setData] = useState<IProduct[]>([]);
+  const [data, setData] = useState<IBooks[]>([]);
   useEffect(() => {
-    fetch('./data.json')
+    fetch('https://books-catalog-server.vercel.app/api/v1/books')
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data.data));
   }, []);
 
-  //! Dummy Data
 
-  const status = true;
-  const priceRange = 100;
-
-  //! **
-
-  const handleSlider = (value: number[]) => {
-    console.log(value);
-  };
-
-  let productsData;
-
-  if (status) {
-    productsData = data.filter(
-      (item) => item.status === true && item.price < priceRange
-    );
-  } else if (priceRange > 0) {
-    productsData = data.filter((item) => item.price < priceRange);
-  } else {
-    productsData = data;
-  }
 
   return (
     <div className="grid grid-cols-12 max-w-7xl mx-auto relative ">
@@ -54,15 +33,14 @@ export default function Products() {
               max={150}
               min={0}
               step={1}
-              onValueChange={(value) => handleSlider(value)}
             />
           </div>
-          <div>From 0$ To {priceRange}$</div>
+          <div>From 0$ To $</div>
         </div>
       </div>
       <div className="col-span-9 grid grid-cols-3 gap-10 pb-20">
-        {productsData?.map((product) => (
-          <ProductCard product={product} />
+        {data?.map((book) => (
+          <ProductCard book={book} />
         ))}
       </div>
     </div>
