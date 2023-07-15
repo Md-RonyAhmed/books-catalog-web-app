@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 export default function Products() {
   const [data, setData] = useState<IBooks[]>([]);
   useEffect(() => {
-    fetch('https://books-catalog-server.vercel.app/api/v1/books')
+    fetch('https://books-catalog-server.vercel.app/api/v1/books?limit=17')
       .then((res) => res.json())
       .then((data) => setData(data.data));
   }, []);
