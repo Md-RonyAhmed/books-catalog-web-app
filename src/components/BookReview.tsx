@@ -13,6 +13,7 @@ const dummyComments = [
 export default function BookReview() {
   return (
     <div className="max-w-7xl mx-auto mt-5">
+      <h1 className="font-bold text-lg py-2">Reviews:</h1>
       <div className="flex gap-5 items-center">
         <Textarea className="min-h-[30px]" />
         <Button className="rounded-full h-10 w-10 p-2 text-[25px]">
