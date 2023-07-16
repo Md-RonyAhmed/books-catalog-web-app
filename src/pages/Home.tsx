@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex justify-between items-center h-[calc(100vh-80px)] max-w-7xl mx-auto ">
         <div>
           <h1 className="text-5xl font-black text-primary mb-4">
-            Literati Library: <br /> Immerse Yourself in the <br /> Written Word
+            Literati Library: <br /> Immerse Yourself in the <br /> Reading World
           </h1>
           <p className="text-secondary font-semibold text-xl">
             Explore our wide selection of books and find your next favorite
