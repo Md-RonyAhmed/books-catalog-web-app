@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ProductCard from '@/components/BookCard';
 import Error from '@/components/ui/Error';
 import Loading from '@/components/ui/Loading';
-import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
-import { Switch } from '@/components/ui/switch';
 import { useGetBooksQuery } from '@/redux/features/books/booksApi';
 import { IBooks } from '@/types/globalTypes';
 import { useState } from 'react';
@@ -22,6 +20,25 @@ export default function Books() {
 
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  // Function to get unique genres from the book data
+  const getUniqueGenres = (data: any) => {
+    const genres = new Set();
+    data?.forEach((book: IBooks) => {
+      genres.add(book.genre);
+    });
+    return Array.from(genres);
+  };
+
+  // Function to get unique publication years from the book data
+  const getUniquePublicationYears = (data: any) => {
+    const years = new Set();
+    data?.forEach((book: IBooks) => {
+      const year = new Date(book.published).getFullYear();
+      years.add(year);
+    });
+    return Array.from(years);
   };
 
   if (isLoading && !data) {
@@ -49,23 +66,37 @@ export default function Books() {
   }
 
   const totalPages = Math.ceil(data?.meta?.count / LIMIT_PER_PAGE); // Assuming 10 books per page
+  // Get unique genres and publication years from the book data
+  const uniqueGenres = getUniqueGenres(data?.data || []) as string[];
+  const uniquePublicationYears = getUniquePublicationYears(
+    data?.data || []
+  ) as number[];
 
   return (
     <div className="grid grid-cols-12 max-w-7xl mx-auto relative py-6 pt-4">
       <div className="col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-5 self-start sticky top-16 h-[calc(100vh-80px)]">
         <div>
-          <h1 className="text-2xl uppercase">Availability</h1>
-          <div className="flex items-center space-x-2 mt-3">
-            <Switch id="in-stock" />
-            <Label htmlFor="in-stock">In stock</Label>
-          </div>
+          <h1 className="text-2xl uppercase">Genre</h1>
+          <select className="w-full mt-3 border rounded-md p-2">
+            <option value="">All Genres</option>
+            {uniqueGenres.map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
         </div>
+        {/* Publication Year Select */}
         <div className="space-y-3 ">
-          <h1 className="text-2xl uppercase">Price Range</h1>
-          <div className="max-w-xl">
-            <Slider defaultValue={[150]} max={150} min={0} step={1} />
-          </div>
-          <div>From 0$ To $</div>
+          <h1 className="text-2xl uppercase">Publication Year</h1>
+          <select className="w-full mt-3 border rounded-md p-2">
+            <option value="">All Years</option>
+            {uniquePublicationYears.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       <div className="col-span-9 grid grid-cols-3 gap-10">
