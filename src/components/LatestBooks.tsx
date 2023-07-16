@@ -5,7 +5,10 @@ import BookCard from './BookCard';
 import { IBooks } from '@/types/globalTypes';
 
 const LatestBooks = () => {
-  const { data, isLoading, isError } = useGetBooksQuery(undefined);
+  const { data, isLoading, isError } = useGetBooksQuery({
+    page: 1,
+    limit: 10,
+  });
 
   if (isLoading && !data) {
     return (

@@ -19,7 +19,7 @@ export default function BookCard({ book }: IProps) {
       <div className="rounded-xl h-full flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-xl hover:scale-[102%] transition-all gap-3">
         <Link to={`/books/${book?._id}`} className="w-full">
           <img
-            className="h-[280px] mx-auto w-full mb-2"
+            className="h-[280px] mx-auto w-full mb-2 rounded-md"
             src={book?.thumbnail}
             alt="book"
           />
